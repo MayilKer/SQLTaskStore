@@ -61,5 +61,8 @@ Select * from Phones p inner Join Brands b on p.Brand_ID = b.ID
 Select b.Name as BradName,n.Notebook_Name,n.Notebook_Price,n.Notebook_ID,Phone_Name,Phone_Price,Phone_ID from Brands b inner Join Notebooks n on n.Brand_ID = b.ID inner join Phones on Phone_ID = b.ID
 Select b.Name as BradName,n.Notebook_Name,n.Notebook_Price,n.Notebook_ID,Phone_Name,Phone_Price,Phone_ID from Brands b inner Join Notebooks n on n.Brand_ID = b.ID inner join Phones on Phone_ID = b.ID
 where n.Notebook_Price > 100 and Phone_Price > 1000
-
+Select b.Name,Count(b.ID)  as [say] from Brands b join Notebooks n on  n.Brand_ID = b.ID group by b.Name
+Select b.Name,Count(b.ID)  as [say] from Brands b join Phones p on  p.Brand_ID = b.ID group by b.Name
+Select b.Name,Count(b.ID)as [say],SUM(p.Phone_Price) as [TotalPrice]   from Brands b join Phones p on  p.Brand_ID = b.ID group by b.Name
+Select b.Name,Count(b.ID)  as [say],SUM(n.Notebook_Price) as [TotalPrice] from Brands b join Notebooks n on  n.Brand_ID = b.ID group by b.Name
 
